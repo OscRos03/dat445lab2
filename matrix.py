@@ -19,6 +19,28 @@ def powers(M, n1, n2):
 
 def matmul(M1, M2):
     if (len(M1) > 0 and len(M2) > 0):
-        if (len(M2) == len(M1[0])):
+        if (len(M1[0]) == len (M2)):
             Mres = []
-            
+            for column1 in range(len(M1)):
+                for row2 in range(len(M2[0])):
+                    for column2 in range(len(M2)):
+                        if not (0 <= column1 < len(Mres)):
+                            Mres.append([])
+                        if not (0 <= row2 < len(Mres[column1])):
+                            Mres[column1].append(0)
+                        Mres[column1][row2] += M1[column1][column2] * M2[column2][row2]
+            return Mres
+    return []
+
+def invert(M):
+    # hardcode gaming
+    det = M[0][0] * M[1][1] - M[0][1] * M[1][0]
+    Mres = [
+                [M[1][1]/det,      M[0][1]/det*-1],
+                [M[1][0]/det*-1,   M[0][0]/det],
+            ]
+    return Mres
+
+# ork
+def loadtxt(filename):
+    return
