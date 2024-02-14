@@ -43,4 +43,9 @@ def invert(M):
 
 # ork
 def loadtxt(filename):
-    return
+    file=open(filename,"r")
+    l = [ line.split() for line in file]
+   
+    file.close()
+
+    return l
