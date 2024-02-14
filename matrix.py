@@ -16,3 +16,9 @@ def powers(M, n1, n2):
         for j in range(n1, n2+1):
             Mp[i].append(M[i]**j)
     return Mp
+
+def matmul(M1, M2):
+    if (len(M1) > 0 and len(M2) > 0):
+        if (len(M2) == len(M1[0])):
+            Mres = []
+            
