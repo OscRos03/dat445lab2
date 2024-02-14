@@ -41,11 +41,15 @@ def invert(M):
             ]
     return Mres
 
-# ork
 def loadtxt(filename):
-    file=open(filename,"r")
-    l = [ line.split() for line in file]
+    file = open(filename,"r")
+    
+    l = [line.split() for line in file]
    
     file.close()
+
+    for row in range(len(l)):
+        for column in range(len(l[row])):
+            l[row][column] = float(l[row][column])
 
     return l
